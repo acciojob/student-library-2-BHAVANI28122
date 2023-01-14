@@ -12,7 +12,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
 
     @Query("select b from Book b where b.available =:availability and b.author in (select a from Author a where a.name =:author_name)")
-    List<Book> findBooksByAuthor(String author_name, boolean availability);
+    List<Book> findBooksByAuthor(String author_name);
 
     @Query("select b from Book b where b.genre =:genre and b.available =:available")
     List<Book> findBooksByGenre(String genre, boolean available);
