@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //Add required annotations
@@ -33,7 +34,8 @@ public class BookController {
                                    @RequestParam(value = "available", required = false, defaultValue = "false") boolean available,
                                    @RequestParam(value = "author", required = false) String author){
 
-        List<Book> bookList = null; //find the elements of the list by yourself
+        List<Book> bookList = bookService.getBooks(genre,available,author);
+        //find the elements of the list by yourself
 
         return new ResponseEntity<>(bookList, HttpStatus.OK);
 
