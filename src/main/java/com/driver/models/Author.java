@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Table
 @Data
+@Builder
 @AllArgsConstructor
 public class Author {
 

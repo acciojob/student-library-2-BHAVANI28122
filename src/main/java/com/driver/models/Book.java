@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table
 @Data
+@Builder
 
 public class Book {
 
