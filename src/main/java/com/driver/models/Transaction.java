@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Table
 @Data
-@Builder
 @AllArgsConstructor
 public class Transaction {
 

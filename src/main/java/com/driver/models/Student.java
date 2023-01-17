@@ -14,7 +14,6 @@ import java.util.Date;
 @Entity
 @Table
 @Data
-@Builder
 @AllArgsConstructor
 public class Student {
 

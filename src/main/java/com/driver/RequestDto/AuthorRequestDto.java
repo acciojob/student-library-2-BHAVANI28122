@@ -1,10 +1,12 @@
 package com.driver.RequestDto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
 
 @Data
+@Builder
 public class AuthorRequestDto {
     private String name;
 

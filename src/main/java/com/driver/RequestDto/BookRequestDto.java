@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 @Data
+@Builder
 public class BookRequestDto {
 
     private String name;

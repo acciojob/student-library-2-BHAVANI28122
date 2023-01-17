@@ -1,5 +1,6 @@
 package com.driver.RequestDto;
 
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -8,6 +9,7 @@ import javax.persistence.Column;
 import java.util.Date;
 
 @Data
+@Builder
 public class StudentRequestDto {
 
     @Column(unique = true)
