@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table
 @Data
 @Builder
 @AllArgsConstructor
