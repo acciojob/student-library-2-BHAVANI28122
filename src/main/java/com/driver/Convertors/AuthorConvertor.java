@@ -8,13 +8,13 @@ import lombok.Data;
 import javax.persistence.Column;
 
 @Data
-@Builder
 public class AuthorConvertor {
 
     public static Author ConvertToEntity(AuthorRequestDto authorRequestDto){
         Author author = Author.builder().
                 name(authorRequestDto.getName())
-                .age(authorRequestDto.getAge()).country(authorRequestDto.getCountry())
+                .age(authorRequestDto.getAge())
+                .country(authorRequestDto.getCountry())
                 .email(authorRequestDto.getEmail()).build();
         return author;
 

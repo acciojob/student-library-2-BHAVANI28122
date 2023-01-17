@@ -14,7 +14,6 @@ import java.util.List;
 @Table
 @Data
 @Builder
-@AllArgsConstructor
 
 public class Book {
 
