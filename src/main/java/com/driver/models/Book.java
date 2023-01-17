@@ -45,8 +45,6 @@ public class Book {
     @JsonIgnoreProperties("book")
     private List<Transaction> transactions;
 
-    public Book() {
-    }
 
 }
 
