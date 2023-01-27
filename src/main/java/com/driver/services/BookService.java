@@ -1,9 +1,9 @@
 package com.driver.services;
 
-import com.driver.Convertors.BookConvertor;
-import com.driver.RequestDto.BookRequestDto;
+
 import com.driver.models.Author;
 import com.driver.models.Book;
+import com.driver.models.Genre;
 import com.driver.repositories.AuthorRepository;
 import com.driver.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,27 +19,16 @@ public class BookService {
     @Autowired
     BookRepository bookRepository2;
 
-    @Autowired
-    AuthorRepository authorRepository1;
-
-    public void createBook(BookRequestDto bookRequestDto){
-
-        Book book = BookConvertor.ConvertToEntity(bookRequestDto);
-
-        int authorId = bookRequestDto.getAuthorId();
-
-        Author author = authorRepository1.findById(authorId).get();
-
-        book.setAuthor(author);
+    public void createBook(Book book){
 
         bookRepository2.save(book);
     }
 
     public List<Book> getBooks(String genre, boolean available, String author){
-        List<Book> books = new ArrayList<>(); //find the elements of the list by yourself
+       //find the elements of the list by yourself
 
         if(genre != null && author != null){
-            return bookRepository2.findBooksByGenreAuthor(genre,available,author);
+            return bookRepository2.findBooksByGenreAuthor(genre, author,available);
         }
         else if(genre != null){
             return bookRepository2.findBooksByGenre(genre,available);
@@ -50,4 +39,6 @@ public class BookService {
             return bookRepository2.findByAvailability(available);
         }
     }
+
+
 }

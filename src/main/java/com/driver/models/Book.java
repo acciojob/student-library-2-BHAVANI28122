@@ -14,7 +14,8 @@ import java.util.List;
 @Table
 @Data
 @Builder
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -49,6 +50,5 @@ public class Book {
         this.genre = genre;
         this.available = available;
     }
-
 }
 

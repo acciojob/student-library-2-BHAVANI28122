@@ -1,7 +1,5 @@
 package com.driver.services;
 
-import com.driver.Convertors.StudentConvertor;
-import com.driver.RequestDto.StudentRequestDto;
 import com.driver.models.Card;
 import com.driver.models.CardStatus;
 import com.driver.models.Student;
@@ -35,13 +33,9 @@ public class StudentService {
                 return student;
     }
 
-    public void createStudent(StudentRequestDto studentRequestDto){
-        Student student = StudentConvertor.ConvertToStudentEntity(studentRequestDto);
-        Card card = new Card();
-        card.setCardStatus(CardStatus.ACTIVATED);
-        card.setStudent(student);
+    public void createStudent(Student student){
 
-        studentRepository4.save(student);
+       Card card = cardService4.createAndReturn(student);
 
     }
 
@@ -52,6 +46,7 @@ public class StudentService {
 
     public void deleteStudent(int id){
         //Delete student and deactivate corresponding card
+        cardService4.deactivateCard(id);
         studentRepository4.deleteById(id);
     }
 }

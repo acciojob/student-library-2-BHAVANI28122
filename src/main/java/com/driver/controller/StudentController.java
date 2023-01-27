@@ -1,6 +1,5 @@
 package com.driver.controller;
 
-import com.driver.RequestDto.StudentRequestDto;
 import com.driver.models.Student;
 import com.driver.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +31,9 @@ public class StudentController {
 
     @PostMapping("/createStudent")
     //Add required annotations
-    public ResponseEntity createStudent(@RequestBody StudentRequestDto studentRequestDto){
+    public ResponseEntity createStudent(@RequestBody Student student){
 
-        studentService.createStudent(studentRequestDto);
+        studentService.createStudent(student);
 
         return new ResponseEntity<>("the student is successfully added to the system", HttpStatus.CREATED);
     }
