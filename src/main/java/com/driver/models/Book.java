@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @Table
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
@@ -41,14 +40,15 @@ public class Book {
     @Column(columnDefinition = "TINYINT(1)")
     private boolean available;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnoreProperties("book")
     private List<Transaction> transactions;
 
-    public Book(String name, Genre genre, boolean available) {
+    public Book(String name, Genre genre,Author author) {
         this.name = name;
         this.genre = genre;
-        this.available = available;
+        this.author =author;
+        this.available = true;
     }
 }
 

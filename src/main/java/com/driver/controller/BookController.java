@@ -30,6 +30,7 @@ public class BookController {
         return new ResponseEntity<>("Book Added Successfully",HttpStatus.CREATED);
     }
     //Add required annotations
+    @GetMapping("/getBooks")
     public ResponseEntity getBooks(@RequestParam(value = "genre", required = false) String genre,
                                    @RequestParam(value = "available", required = false, defaultValue = "false") boolean available,
                                    @RequestParam(value = "author", required = false) String author){
